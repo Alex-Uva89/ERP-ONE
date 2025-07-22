@@ -1,0 +1,137 @@
+[
+  {
+    "id": 2,
+    "css": {
+      "color": "#000",
+      "bg_color": "#007cff"
+    },
+    "icon": "emoj_people",
+    "path": "/welcome",
+    "default": true,
+    "i18n_key": "welcome",
+    "nature_id": null,
+    "orderView": 0,
+    "visibility": true,
+    "componentName": "WelcomePage.vue"
+  },
+  {
+    "id": 1,
+    "css": {
+      "color": "#fff",
+      "bg_color": "none"
+    },
+    "icon": "restaurant",
+    "path": "/entities",
+    "default": false,
+    "i18n_key": "entities",
+    "nature_id": 1,
+    "orderView": 1,
+    "visibility": true,
+    "componentName": "EntityPage.vue"
+  },
+  {
+    "id": 3,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "space_dashboard",
+    "path": "/dashboard",
+    "default": false,
+    "i18n_key": "dashboard",
+    "nature_id": null,
+    "orderView": 2,
+    "visibility": false,
+    "componentName": "DashboardPage.vue"
+  },
+  {
+    "id": 4,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "preview",
+    "path": "/preview",
+    "default": false,
+    "i18n_key": "preview",
+    "nature_id": null,
+    "orderView": 3,
+    "visibility": false,
+    "componentName": "PreviewPage.vue"
+  },
+  {
+    "id": 5,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#008f39"
+    },
+    "icon": "allergies",
+    "path": "/allergens",
+    "default": false,
+    "i18n_key": "allergens",
+    "nature_id": null,
+    "orderView": 4,
+    "visibility": false,
+    "componentName": "AllergensPage.vue"
+  },
+  {
+    "id": 6,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "chat",
+    "path": "/inbox",
+    "default": false,
+    "i18n_key": "messages",
+    "nature_id": null,
+    "orderView": 5,
+    "visibility": false,
+    "componentName": "InboxPage.vue"
+  },
+  {
+    "id": 7,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "login",
+    "path": "/login",
+    "default": false,
+    "i18n_key": "login",
+    "nature_id": null,
+    "orderView": 6,
+    "visibility": false,
+    "componentName": "LoginPage.vue"
+  },
+  {
+    "id": 8,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "warehouse",
+    "path": "/categories",
+    "default": false,
+    "i18n_key": "categories",
+    "nature_id": null,
+    "orderView": 7,
+    "visibility": true,
+    "componentName": "CategoriesPage.vue"
+  },
+  {
+    "id": 4,
+    "css": {
+      "color": "#fff",
+      "bg_color": "#ffbf00"
+    },
+    "icon": "preview",
+    "path": "/references",
+    "default": false,
+    "i18n_key": "references",
+    "nature_id": null,
+    "orderView": 3,
+    "visibility": true,
+    "componentName": "ReferencesPage.vue"
+  }
+]

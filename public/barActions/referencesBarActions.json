@@ -1,0 +1,24 @@
+[
+  {
+    "label": "Add",
+    "icon": "add",
+    "menu": [
+      {
+        "label": "New Reference"
+      },
+      {
+        "label": "New Variant"
+      }
+    ]
+  },
+  {
+    "label": "Delete",
+    "icon": "delete",
+    "menu": [{ "label": "Select reference" }, { "label": "Select all" }]
+  },
+  {
+    "label": "Print",
+    "icon": "print",
+    "menu": [{ "label": "Print list" }]
+  }
+]

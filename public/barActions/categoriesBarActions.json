@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Aggiungi",
+    "icon": "add",
+    "menu": [
+      {
+        "label": "Preferences",
+        "children": [
+          {
+            "label": "Submenu 1",
+            "children": [
+              { "label": "3rd level 1" },
+              { "label": "3rd level 2" },
+              { "label": "3rd level 3" }
+            ]
+          },
+          {
+            "label": "Submenu 2",
+            "children": [
+              { "label": "3rd level 1" },
+              { "label": "3rd level 2" },
+              { "label": "3rd level 3" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Elimina",
+    "icon": "delete",
+    "menu": [{ "label": "Select All" }]
+  }
+]

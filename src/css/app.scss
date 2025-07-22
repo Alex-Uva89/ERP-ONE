@@ -1,0 +1,27 @@
+// app.scss
+
+@mixin mx($size) {
+  margin-left: $size;
+  margin-right: $size;
+}
+
+@for $i from 1 through 20 {
+  .m-x-#{$i} {
+    @include mx($i * .25rem);
+  }
+}
+
+@mixin my($size) {
+  margin-bottom: $size;
+  margin-top: $size;
+}
+
+@for $i from 1 through 20 {
+  .m-y-#{$i} {
+    @include my($i * .25rem);
+  }
+}
+
+.w-fit{
+  width: fit-content;
+}

@@ -1,0 +1,223 @@
+{
+  "id": 5,
+  "css": null,
+  "lft": 1,
+  "rgt": 12,
+  "isChecked": true,
+  "path": [
+    {
+      "tree_id": "f6ed42247032231113acc6e7731c8062",
+      "i18n_key": "TEST2"
+    }
+  ],
+  "depth": 0,
+  "tree_id": "f6ed42247032231113acc6e7731c8062",
+  "children": [
+    {
+      "id": 7,
+      "css": null,
+      "lft": 2,
+      "rgt": 11,
+      "path": [
+        {
+          "tree_id": "f6ed42247032231113acc6e7731c8062",
+          "i18n_key": "TEST2"
+        },
+        {
+          "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+          "i18n_key": "TEST2-CHILD1"
+        }
+      ],
+      "depth": 1,
+      "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+      "children": [
+        {
+          "id": 9,
+          "css": null,
+          "lft": 3,
+          "rgt": 10,
+          "path": [
+            {
+              "tree_id": "f6ed42247032231113acc6e7731c8062",
+              "i18n_key": "TEST2"
+            },
+            {
+              "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+              "i18n_key": "TEST2-CHILD1"
+            },
+            {
+              "tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+              "i18n_key": "TEST2-CHILD1-GRANDCHILD1"
+            }
+          ],
+          "depth": 2,
+          "tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+          "children": [
+            {
+              "id": 10,
+              "css": null,
+              "lft": 4,
+              "rgt": 9,
+              "path": [
+                {
+                  "tree_id": "f6ed42247032231113acc6e7731c8062",
+                  "i18n_key": "TEST2"
+                },
+                {
+                  "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+                  "i18n_key": "TEST2-CHILD1"
+                },
+                {
+                  "tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+                  "i18n_key": "TEST2-CHILD1-GRANDCHILD1"
+                },
+                {
+                  "tree_id": "35266a1ee813549d44e166243556ffa8",
+                  "i18n_key": "TEST2-CHILD1-GRANDCHILD2"
+                }
+              ],
+              "depth": 3,
+              "tree_id": "35266a1ee813549d44e166243556ffa8",
+              "children": [
+                {
+                  "id": 51,
+                  "css": null,
+                  "lft": 5,
+                  "rgt": 8,
+                  "path": [
+                    {
+                      "tree_id": "f6ed42247032231113acc6e7731c8062",
+                      "i18n_key": "TEST2"
+                    },
+                    {
+                      "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+                      "i18n_key": "TEST2-CHILD1"
+                    },
+                    {
+                      "tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+                      "i18n_key": "TEST2-CHILD1-GRANDCHILD1"
+                    },
+                    {
+                      "tree_id": "35266a1ee813549d44e166243556ffa8",
+                      "i18n_key": "TEST2-CHILD1-GRANDCHILD2"
+                    },
+                    {
+                      "tree_id": "2309b8ef7bae7c6b2ad6eb094a0abdfd",
+                      "i18n_key": "TEST2-CHILD2-1"
+                    }
+                  ],
+                  "depth": 4,
+                  "tree_id": "2309b8ef7bae7c6b2ad6eb094a0abdfd",
+                  "children": [
+                    {
+                      "id": 55,
+                      "css": null,
+                      "lft": 6,
+                      "rgt": 7,
+                      "path": [
+                        {
+                          "tree_id": "f6ed42247032231113acc6e7731c8062",
+                          "i18n_key": "TEST2"
+                        },
+                        {
+                          "tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+                          "i18n_key": "TEST2-CHILD1"
+                        },
+                        {
+                          "tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+                          "i18n_key": "TEST2-CHILD1-GRANDCHILD1"
+                        },
+                        {
+                          "tree_id": "35266a1ee813549d44e166243556ffa8",
+                          "i18n_key": "TEST2-CHILD1-GRANDCHILD2"
+                        },
+                        {
+                          "tree_id": "2309b8ef7bae7c6b2ad6eb094a0abdfd",
+                          "i18n_key": "TEST2-CHILD2-1"
+                        },
+                        {
+                          "tree_id": "e6751ce1135492cdbe203d6b3f3283bb",
+                          "i18n_key": "TEST5"
+                        }
+                      ],
+                      "depth": 5,
+                      "tree_id": "e6751ce1135492cdbe203d6b3f3283bb",
+                      "children": [],
+                      "i18n_key": "TEST5",
+                      "owner_id": 2,
+                      "is_active": false,
+                      "parent_id": 51,
+                      "created_ts": "2025-05-21T15:31:12.556439+02:00",
+                      "deleted_ts": null,
+                      "parent_tree_id": "2309b8ef7bae7c6b2ad6eb094a0abdfd",
+                      "created_by_account_id": 1,
+                      "deleted_by_account_id": null,
+                      "reference_data_schema": null,
+                      "reference_variants_schema": null
+                    }
+                  ],
+                  "i18n_key": "TEST2-CHILD2-1",
+                  "owner_id": 2,
+                  "is_active": false,
+                  "parent_id": 10,
+                  "created_ts": "2025-05-21T10:55:18.590245+02:00",
+                  "deleted_ts": null,
+                  "parent_tree_id": "35266a1ee813549d44e166243556ffa8",
+                  "created_by_account_id": 1,
+                  "deleted_by_account_id": null,
+                  "reference_data_schema": null,
+                  "reference_variants_schema": null
+                }
+              ],
+              "i18n_key": "TEST2-CHILD1-GRANDCHILD2",
+              "owner_id": 2,
+              "is_active": false,
+              "parent_id": 9,
+              "created_ts": "2025-05-16T13:31:50.766935+02:00",
+              "deleted_ts": null,
+              "parent_tree_id": "7fda76cd22d828cba1ddc82aae0935d5",
+              "created_by_account_id": 1,
+              "deleted_by_account_id": null,
+              "reference_data_schema": null,
+              "reference_variants_schema": null
+            }
+          ],
+          "i18n_key": "TEST2-CHILD1-GRANDCHILD1",
+          "owner_id": 2,
+          "is_active": false,
+          "parent_id": 7,
+          "created_ts": "2025-05-16T13:30:44.484844+02:00",
+          "deleted_ts": null,
+          "parent_tree_id": "a5ac5a1509753fbecdab2bd116c1045d",
+          "created_by_account_id": 1,
+          "deleted_by_account_id": null,
+          "reference_data_schema": null,
+          "reference_variants_schema": null
+        }
+      ],
+      "i18n_key": "TEST2-CHILD1",
+      "owner_id": 2,
+      "is_active": false,
+      "parent_id": 5,
+      "created_ts": "2025-05-16T13:28:19.888308+02:00",
+      "deleted_ts": null,
+      "parent_tree_id": "f6ed42247032231113acc6e7731c8062",
+      "created_by_account_id": 1,
+      "deleted_by_account_id": null,
+      "reference_data_schema": null,
+      "reference_variants_schema": null
+    }
+  ],
+  "i18n_key": "TEST2",
+  "owner_id": 2,
+  "is_active": false,
+  "parent_id": null,
+  "created_ts": "2025-05-16T13:25:04.666462+02:00",
+  "deleted_ts": null,
+  "parent_tree_id": null,
+  "created_by_account_id": 1,
+  "deleted_by_account_id": null,
+  "reference_data_schema": null,
+  "reference_variants_schema": null
+}
+

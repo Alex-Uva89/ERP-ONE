@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Impostazioni",
+    "caption": "Impostazioni di sistema",
+    "icon": "settings"
+  },
+  {
+    "title": "Segnala Errori",
+    "caption": "Qualcosa non funziona?",
+    "icon": "warning"
+  }
+]
