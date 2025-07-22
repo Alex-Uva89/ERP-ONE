@@ -45,32 +45,32 @@ erp.mom
 ├── package.json
 └── ...
 
-
 ---
 
 ## ⚙️ Installazione
 
-
 **Requisiti:** Node.js `^18 || ^20 || ^22 || ^24 || ^26 || ^28`, NPM `>= 6.13.4` o Yarn `>= 1.21.1`
 
-
 # Clona il repository
+
 git clone https://github.com/tuo-utente/erpone-quasar-frontend.git
 cd erpone-quasar-frontend
 
 # Installa le dipendenze
+
 npm install
 
 # Avvia l'ambiente di sviluppo
+
 npm run dev
 
-
 # 🛠️ Comandi disponibili
-Comando	Descrizione
-npm run dev	Avvia il progetto in modalità sviluppo
-npm run build	Compila il progetto per la produzione
-npm run lint	Esegue il linting del codice
-npm run format	Formatta il codice con Prettier
+
+Comando Descrizione
+npm run dev Avvia il progetto in modalità sviluppo
+npm run build Compila il progetto per la produzione
+npm run lint Esegue il linting del codice
+npm run format Formatta il codice con Prettier
 
 # 🤝 Come contribuire
 
@@ -95,7 +95,6 @@ Sviluppatore: Alex Uva
 📄 Licenza
 
 ### Questo progetto è attualmente privato. Per eventuali utilizzi commerciali o richieste di licenza, contattare l'autore.
-
 
 # 🧠 Visione
 
