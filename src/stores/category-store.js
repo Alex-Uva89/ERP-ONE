@@ -8,6 +8,7 @@ export const useCategoryStore = defineStore('category', {
   state: () => ({
     category: null,
     selectedCategory: [],
+    category_schema: [],
   }),
 
   actions: {
@@ -28,7 +29,21 @@ export const useCategoryStore = defineStore('category', {
           }`,
         )
         this.category = response.data.data
-        console.log('CATEGORY', this.category)
+        // console.log('CATEGORY', this.category)
+      } catch (error) {
+        console.error('Errore nel fetch delle category:', error)
+        // Potresti voler re-iniettare l'errore o gestirlo in altro modo
+        throw error
+      }
+    },
+
+    async fetchDataSchema(val) {
+      try {
+        const response = await axios.get(
+          `http://localhost:18080/xApp/warehouse/categories/find/reference_data_schema/1/${val}`,
+        )
+        this.category_schema = response.data.data
+        // console.log('CATEGORY SCHEMA', this.category_schema)
       } catch (error) {
         console.error('Errore nel fetch delle category:', error)
         // Potresti voler re-iniettare l'errore o gestirlo in altro modo

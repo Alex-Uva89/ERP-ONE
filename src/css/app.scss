@@ -7,7 +7,7 @@
 
 @for $i from 1 through 20 {
   .m-x-#{$i} {
-    @include mx($i * .25rem);
+    @include mx($i * 0.25rem);
   }
 }
 
@@ -18,10 +18,10 @@
 
 @for $i from 1 through 20 {
   .m-y-#{$i} {
-    @include my($i * .25rem);
+    @include my($i * 0.25rem);
   }
 }
 
-.w-fit{
+.w-fit {
   width: fit-content;
 }

@@ -116,7 +116,7 @@
         />
         <q-card-section>
           <q-banner class="bg-primary text-white q-mb-md">
-            <div>{{ detailText.name || 'Dettagli' }}</div>
+            <div>{{ detailTitle }}</div>
           </q-banner>
 
           <div class="q-pa-sm">
@@ -154,17 +154,20 @@
                   rounded
                   icon="add"
                   class="q-mt-sm"
-                  @click="opendialogFunction(detailText)"
+                  @click="openEdit(detailText)"
                 />
               </template>
 
               <!-- Se i dati non sono strutturati -->
               <template v-else>
                 <div class="text-grey-6 q-opacity-50 q-mb-md">
-                  <div class="text-subtitle2 q-mb-sm">Dati non strutturati</div>
+                  <q-toolbar class="text-white text-uppercase q-mb-sm bg-red">
+                    ⚠️ Dati non strutturati
+                  </q-toolbar>
                   <ul class="q-pl-md">
                     <li v-for="(value, key) in detailText.data" :key="key" class="q-mb-xs">
-                      <span class="text-weight-medium">{{ key }}:</span> {{ formatValue(value) }}
+                      <span class="text-weight-medium">{{ key }}:</span>
+                      {{ formatValue(value) }}
                     </li>
                   </ul>
                   <q-btn
@@ -175,7 +178,7 @@
                     rounded
                     icon="add"
                     class="q-mt-sm"
-                    @click="opendialogFunction(value)"
+                    @click="openEdit(detailText)"
                   />
                 </div>
               </template>
@@ -190,11 +193,128 @@
       =                  DIALOG: ADD/EDIT DETAILS REFERENCE                     =
       ======================================================================
     -->
-    <q-dialog v-model="opendialogEdit">
-      <q-card>
-        <q-card-section>
-          <!-- {{ console.log('DEBUG EDIT', itemDialog) }} -->
+    <q-dialog v-model="opendialogEdit" persistent>
+      <q-card style="width: 1400px; max-width: 90vw">
+        <!--
+                       _____________________________________________________________________
+                      |                                                                     |
+                      |                            HEADER FORM                              |
+                      |_____________________________________________________________________|
+        -->
+        {{ console.log('itemDIALOG', itemDialog) }}
+        <q-card-section class="row items-center q-pa-md q-mb-md bg-grey-2">
+          <div class="text-h6" v-if="detailText.data[detailText.data.referenceType]">
+            Modifica {{ detailTitle }}
+          </div>
+          <div v-else>Modifica elemento</div>
+          <q-space />
+          <q-btn icon="close" flat round dense @click="opendialogEdit = false" />
         </q-card-section>
+
+        <q-card-section>
+          <q-form class="q-gutter-md row q-col-gutter-md justify-center">
+            <template v-for="(field, key) in dataSchema" :key="field.id">
+              <!--
+                  _____________________________________________________________________
+                 |                                                                     |
+                 |                            INPUT i18n                               |
+                 |_____________________________________________________________________|
+              -->
+
+              <div v-if="field.i18n === true" class="col-12 col-md-3">
+                <div class="text-subtitle2 q-mb-xs">{{ key }}</div>
+                <q-input
+                  filled
+                  color="teal-4"
+                  v-model="itemDialog.data[itemDialog.data.referenceType][key]"
+                  :label="field.properties[lang].placeholder"
+                  class="q-pb-md"
+                />
+              </div>
+
+              <!--
+                   _____________________________________________________________________
+                  |                                                                     |
+                  |                        INPUT WHITOUT i18n                           |
+                  |_____________________________________________________________________|
+              -->
+
+              <div v-else class="col-12 col-md-3">
+                <div class="text-subtitle2 q-mb-xs">{{ key }}</div>
+                <!--
+                   _____________________________________________________________________
+                  |                                                                     |
+                  |                            INPUT TEXT                               |
+                  |_____________________________________________________________________|
+                -->
+
+                <template v-if="['text', 'textarea'].includes(field.inputType)">
+                  <q-input
+                    filled
+                    :type="field.inputType"
+                    :label="field.placeholder"
+                    color="teal-4"
+                    v-model="itemDialog.data[itemDialog.data.referenceType][key]"
+                  />
+                </template>
+
+                <!--
+                   _____________________________________________________________________
+                  |                                                                     |
+                  |                           INPUT NUMBER                              |
+                  |_____________________________________________________________________|
+                -->
+
+                <template v-else-if="field.inputType === 'number'">
+                  <q-input
+                    filled
+                    color="teal-4"
+                    :type="field.inputType"
+                    :label="field.placeholder"
+                    :max="field.maximum"
+                    :min="field.minimum"
+                    v-model.number="itemDialog.data[itemDialog.data.referenceType][key]"
+                  />
+                </template>
+
+                <!--
+                   _____________________________________________________________________
+                  |                                                                     |
+                  |                            INPUT RANGE                              |
+                  |_____________________________________________________________________|
+                -->
+
+                <template v-else-if="field.type === 'object'">
+                  <q-range
+                    v-model="itemDialog.data[itemDialog.data.referenceType][key]"
+                    :min="field.properties.min.minimum"
+                    :max="field.properties.max.maximum"
+                    :step="1"
+                    :left-label-value="
+                      itemDialog.data[itemDialog.data.referenceType][key]?.min + 'px'
+                    "
+                    :right-label-value="
+                      itemDialog.data[itemDialog.data.referenceType][key]?.max + 'px'
+                    "
+                    label-always
+                    switch-label-side
+                    color="purple"
+                  />
+
+                  <!-- {{ field }} -->
+                </template>
+              </div>
+            </template>
+          </q-form>
+        </q-card-section>
+
+        <q-card-actions
+          :align="$q.screen.lt.md ? 'center' : 'right'"
+          class="q-pa-md bg-grey-2 q-mt-md"
+        >
+          <q-btn flat label="Annulla" color="grey-7" @click="opendialogEdit = false" />
+          <q-btn unelevated label="Salva" color="primary" @click="console.log('INVIO')" />
+        </q-card-actions>
       </q-card>
     </q-dialog>
 
@@ -227,7 +347,8 @@
 // =====================
 //         VUE
 // =====================
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
+// import axios from 'axios'
 
 // =====================
 //     COMPONENTS
@@ -242,9 +363,11 @@ import TreeNode from 'components/TreeNode.vue'
 // =====================
 import { useReferencesStore } from 'stores/references-store.js'
 import { useCategoryStore } from 'src/stores/category-store'
+// import { useAppServicesStore } from 'src/stores/app-services-store'
 
 const referencesStore = useReferencesStore()
 const categoryStore = useCategoryStore()
+// const appServicesStore = useAppServicesStore()
 
 // =====================
 //      VARIABLES
@@ -256,6 +379,7 @@ const columns = ref([])
 const rows = ref([])
 const loading = ref(true)
 const maximizedToggle = ref(true)
+const dataSchema = ref(null)
 
 // =====================
 //     const DIALOG
@@ -267,9 +391,15 @@ const itemDialog = ref([])
 const detailText = ref({})
 
 function showDetail(row) {
+  // console.log('ROW DETAIL PRIMA', detailText.value)
   detailText.value = row
   dialog.value = true
+  // console.log('ROW DETAIL DOPO', detailText.value)
 }
+
+// ===========================
+//     CREATION ROW
+// ===========================
 
 function transformReferences(inputProxy, selectedCategoryIds = []) {
   const references = inputProxy?.[Symbol.iterator] ? [...inputProxy] : []
@@ -281,7 +411,7 @@ function transformReferences(inputProxy, selectedCategoryIds = []) {
     const variants = ref.variants
     const categoryId = item.category?.id
 
-    console.log('ITEM', item)
+    // console.log('ITEM', item)
 
     // Se selectedCategoryIds è vuoto, prendi tutte le referenze senza filtro
     if (selectedCategoryIds.length === 0 || selectedCategoryIds.includes(categoryId)) {
@@ -293,9 +423,10 @@ function transformReferences(inputProxy, selectedCategoryIds = []) {
       }
 
       const base = {
-        id: ref.id,
+        id: ref.business_owner.id,
         name: ref.i18n_key,
         category: item.category?.i18n_key,
+        category_id: item.category?.business_owner_id,
         owner: item.business_owner?.owner_id,
         isActive: ref.is_active,
       }
@@ -312,7 +443,6 @@ function transformReferences(inputProxy, selectedCategoryIds = []) {
             variantId: variant.id,
             barcode: variant.barcode,
             stock: variant.stock,
-            ...mergedData,
             data: mergedData,
           })
         }
@@ -321,7 +451,7 @@ function transformReferences(inputProxy, selectedCategoryIds = []) {
           ...base,
           variantId: null,
           noVariant: true,
-          ...referenceData,
+          // ...referenceData,
           data: referenceData,
         })
       }
@@ -361,6 +491,10 @@ function formatValue(val) {
   return val
 }
 
+// ===========================
+//     REFRESH REFERENCES
+// ===========================
+
 async function refreshReferences() {
   await referencesStore.fetchReferences()
   rows.value = transformReferences(
@@ -375,10 +509,63 @@ function handleBarActionClick(action) {
   opendialog.value = true
 }
 
-function opendialogFunction(valore) {
-  console.log('VALORE', valore)
+// =====================
+//     OPEN EDIT
+// =====================
+
+async function openEdit(valore) {
+  itemDialog.value = valore
   opendialogEdit.value = true
+  await categoryStore.fetchDataSchema(valore.category_id)
+  // console.log('DEBUG in OPENEDIT', categoryStore.category_schema)
+  dataSchema.value =
+    categoryStore.category_schema.reference_data_schema.properties[
+      categoryStore.category_schema.reference_data_schema.properties.referenceType.const
+    ].properties
+  // console.log('DATA SCHEMA', dataSchema.value)
 }
+
+// ===========================
+//     CREATE EDIT TITLE
+// ===========================
+
+const detailTitle = computed(() => {
+  const data = detailText.value?.data
+  const refType = data?.referenceType
+
+  let nameCandidate
+
+  //  _____________________________________________________________________
+  // |                                                                     |
+  // |          Caso 1: data ha referenceType e oggetto annidato           |
+  // |_____________________________________________________________________|
+
+  if (refType && typeof data?.[refType] === 'object') {
+    nameCandidate = data[refType]?.name
+  }
+
+  //  _____________________________________________________________________
+  // |                                                                     |
+  // |             Caso 2: data ha direttamente un name (piatto)           |
+  // |_____________________________________________________________________|
+  else if (data?.name) {
+    nameCandidate = data.name
+  }
+
+  //  _____________________________________________________________________
+  // |                                                                     |
+  // |                  Caso 3: name è un oggetto con lingue               |
+  // |_____________________________________________________________________|
+  if (typeof nameCandidate === 'object' && nameCandidate !== null) {
+    return nameCandidate[lang.value] ?? Object.values(nameCandidate)[0] ?? 'Dettagli'
+  }
+
+  //  _____________________________________________________________________
+  // |                                                                     |
+  // |                  Caso 4: name è una stringa semplice                |
+  // |_____________________________________________________________________|
+  return nameCandidate ?? detailText.value?.categoryName ?? 'Dettagli'
+})
 
 onMounted(async () => {
   loading.value = true
@@ -441,7 +628,7 @@ watch(
       newVal.map((c) => c.category_id),
     )
   },
-  { immediate: true, deep: true }, // <--- deep è fondamentale qui!
+  { immediate: true, deep: true },
 )
 </script>
 
