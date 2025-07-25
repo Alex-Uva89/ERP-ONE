@@ -263,8 +263,8 @@ watchEffect(() => {
 // |_____________________________________________________________________|
 //
 
-console.log('SCHEMA', props.schema)
-console.log('FORM', form)
+// console.log('SCHEMA', props.schema)
+// console.log('FORM', form)
 </script>
 
 <style scoped>

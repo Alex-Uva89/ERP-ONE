@@ -12,7 +12,7 @@ export const useReferencesStore = defineStore('reference', {
       try {
         const response = await axios.get(`http://localhost:18080/xApp/warehouse/references/flat/1`)
         this.references = response.data.data
-        console.log('REFERENZE', this.references)
+        // console.log('REFERENZE', this.references)
       } catch (error) {
         console.error('Errore nel fetch delle category:', error)
       }

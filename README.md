@@ -1,102 +1,144 @@
 # Erp.MOM — Mind Over Machine (MOM)
 
-**ERP gestionale modulare basato su Quasar e Vue 3**
+**Modular ERP System based on Quasar and Vue 3**
 
-ErpOne è un moderno sistema ERP progettato per semplificare e automatizzare i processi aziendali. Costruito su tecnologie web avanzate, il frontend è sviluppato con il framework **Quasar**, integrato con **Vue 3**, **Pinia** per lo state management, **Vue Router**, e localizzazione tramite **Vue I18n**.
+ErpOne is a modern ERP system designed to simplify and automate business processes. Built with cutting-edge web technologies, the frontend is developed using the **Quasar** framework, integrated with **Vue 3**, **Pinia** for state management, **Vue Router**, and localized via **Vue I18n**.
 
-> **Mind Over Machine**: un ERP che mette l'intelligenza al centro del tuo business.
+> **Mind Over Machine**: An ERP that puts intelligence at the heart of your business.
 
 ---
 
-## 🚀 Caratteristiche principali
+## 🚀 Key Features
 
-- 🌐 UI moderna e responsive (Quasar Framework)
-- 🌍 Supporto multilingua (Vue I18n)
-- 🧠 Gestione centralizzata dello stato (Pinia)
-- 📦 Modularità per espandere facilmente le funzionalità
-- 🔒 Struttura pronta per autenticazione e gestione dei ruoli
-- 📈 Perfetto per PMI e startup in crescita
+- 🌐 Modern responsive UI (Quasar Framework)
+- 🌍 Multi-language support (Vue I18n)
+- 🧠 Centralized state management (Pinia)
+- 📦 Modular architecture for easy feature expansion
+- 🔒 Authentication-ready structure with role management
+- 📈 Ideal for SMEs and growing startups
 
 ---
 
 ## 📦 Tech Stack
 
-- **Vue 3**
-- **Quasar 2**
-- **Pinia**
+- **Vue 3** (Composition API)
+- **Quasar 2** (with Quasar CLI)
+- **Pinia** (State Management)
 - **Vue Router**
 - **Vue I18n**
-- **Syncfusion Components**
-- **Axios**
+- **Syncfusion Components** (UI Library)
+- **Axios** (HTTP Client)
 
 ---
 
-## 📁 Struttura del progetto
+## 📁 Project Structure
 
-erp.mom
+```
+erp.mom/
+├── .quasar/ # Quasar build artifacts
+├── .vscode/ # VSCode settings
+├── node_modules/
+├── public/ # Static assets
 ├── src/
-│ ├── components/
-│ ├── pages/
-│ ├── layouts/
-│ ├── stores/
-│ └── i18n/
-├── public/
-├── quasar.config.js
+│ ├── assets/ # Media assets
+│ ├── boot/ # Quasar boot files
+│ ├── components/ # Reusable components
+│ ├── css/
+│ │ └── app.scss # Global styles
+│ ├── directives/ # Vue directives
+│ ├── i18n/ # Localization files
+│ ├── layouts/ # Application layouts
+│ ├── pages/ # Route pages
+│ ├── router/ # Vue Router config
+│ ├── stores/ # Pinia stores
+│ └── App.vue # Root component
+├── .editorconfig
+├── .env # Environment variables
+├── .gitignore
+├── .npmrc
+├── .prettierrc.json # Code formatting rules
+├── .routes.md # Route documentation
+├── eslint.config.js # ESLint configuration
+├── index.html # Entry HTML
+├── jsconfig.json # JS configuration
 ├── package.json
-└── ...
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── quasar.config.js # Quasar configuration
+└── README.md
+```
 
 ---
 
-## ⚙️ Installazione
+## ⚙️ Installation
 
-**Requisiti:** Node.js `^18 || ^20 || ^22 || ^24 || ^26 || ^28`, NPM `>= 6.13.4` o Yarn `>= 1.21.1`
+### Prerequisites
 
-# Clona il repository
+- Node.js `^18 || ^20`
+- NPM `>= 8` or Yarn `>= 1.22`
+- Quasar CLI (global installation recommended)
 
-git clone https://github.com/tuo-utente/erpone-quasar-frontend.git
+```bash
+# Install Quasar CLI globally
+npm install -g @quasar/cli
+
+# Verify installation
+quasar --version
+
+# Clone repository
+git clone https://github.com/your-username/erpone-quasar-frontend.git
 cd erpone-quasar-frontend
 
-# Installa le dipendenze
-
+# Install dependencies
 npm install
 
-# Avvia l'ambiente di sviluppo
+# Start development server
+quasar dev
+```
 
-npm run dev
+## 🛠️ Available Commands
 
-# 🛠️ Comandi disponibili
+| Command          | Description                       |
+| ---------------- | --------------------------------- |
+| `quasar dev`     | Start development server with HMR |
+| `quasar build`   | Build for production              |
+| `quasar lint`    | Run ESLint code validation        |
+| `quasar format`  | Format code with Prettier         |
+| `quasar test`    | Run Jest unit tests               |
+| `quasar inspect` | Inspect webpack configuration     |
+| `quasar clean`   | Clear build artifacts             |
+| `quasar info`    | Display environment info          |
 
-Comando Descrizione
-npm run dev Avvia il progetto in modalità sviluppo
-npm run build Compila il progetto per la produzione
-npm run lint Esegue il linting del codice
-npm run format Formatta il codice con Prettier
+> **Tip**: Add `--help` to any command to see available options (e.g. `quasar dev --help`)
 
-# 🤝 Come contribuire
+# 🤝 How to Contribute
 
-Vuoi contribuire a rendere ErpOne ancora più completo? Ecco come fare:
+Want to help make ErpOne even better? Here's how:
 
-    🍴 Forka il progetto
+    🍴 Fork the project
 
-    🌿 Crea un branch (git checkout -b feature/nuova-funzionalita)
+    🌿 Create a branch (git checkout -b feature/new-feature)
 
-    🛠️ Aggiungi le tue modifiche
+    🛠️ Make your changes
 
-    ✅ Fai i test e assicurati che il progetto funzioni (npm run dev)
+    ✅ Test your changes (quasar dev)
 
-    📬 Invia una pull request con una descrizione chiara
+    📬 Submit a pull request with clear description
 
-    Prima di contribuire, assicurati di seguire le linee guida di codifica, naming convention e formattazione (npm run format).
+    Before contributing, please ensure you follow our coding guidelines:
 
-# 📬 Contatti
+    ⚠️ naming conventions
+    ⚠️ formatting standards (npm run format).
+
+# 📬 Contacts
 
 Sviluppatore: Alex Uva
-📧 a.uva1988@gmail.com
-📄 Licenza
+📧 alessandro.uva@consultant.com
 
-### Questo progetto è attualmente privato. Per eventuali utilizzi commerciali o richieste di licenza, contattare l'autore.
+# 📄 License
 
-# 🧠 Visione
+### This project is currently private. For commercial use or licensing inquiries, please contact the author.
 
-    “Mind Over Machine significa controllo, intelligenza e automazione.
-    Non è solo un software, è un compagno gestionale per le aziende del futuro.”
+# 🧠 Vision
+
+    "Mind Over Machine means control, intelligence and automation. It's not just software - it's a business management companion for the companies of tomorrow."

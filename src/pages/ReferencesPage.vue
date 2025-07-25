@@ -92,7 +92,17 @@
         </div>
       </div>
     </div>
-
+    <!--
+    INFO : da eseguire lunedi
+    1) le reference devono essere mostrate per lang in quanto lo schema corretto dei dati è con le diverse lang. Guardare lista reference nello specifico: PIPPUZZO (unico corretto)
+    2) tutto ciò che contiene id NON deve essere mostrato nelle card
+    3) attualmente nella card reference chiusa si mostra il nome della referenza e non della variante (devono comparire entrambi uno sotto l'altro e poi la categoria)
+    4) se dopo aver selezionato una categoria si tolgono tutte le categorie selezionate da Alberatura categorie , rimangono mostrate le reference e non vengono aggiornate a mostrare TUTTE  le referenze, se invece nella sezione specifica o selezione ad alberature si tolgono, vengono mostrate tranquillamente le categorie
+    5) se ci sono più categorie selezionate, e si aggiunge una referenza, viene aperta l'ultima categoria selezionata. Invece dovrebbe far scegliere tra quelle selezionate.
+    6) attualmente non esiste il modulo di aggiunta reference se non ci sono categorie selezionate.
+    7) manca l'aggiunta delle varianti.
+    8) da modificare la vista delle reference, nella lista iniziale si devono vedere solo le reference, aprendo i dettagli si mostrano le varianti.
+    -->
     <!--
       ======================================================================
       =                     DIALOG: DETAILS REFERENCE                      =
@@ -436,7 +446,7 @@ function transformReferences(inputProxy, selectedCategoryIds = []) {
       if (selectedCategoryIds.length === 0) {
         // console.log('Nessuna categoria selezionata, mostro tutte le referenze')
       } else {
-        console.log('MATCHED categoryId:', categoryId)
+        // console.log('MATCHED categoryId:', categoryId)
       }
 
       const base = {
@@ -521,7 +531,7 @@ async function refreshReferences() {
 }
 
 function handleBarActionClick(action) {
-  console.log('Azione cliccata:', action)
+  // console.log('Azione cliccata:', action)
   itemDialog.value = action
   opendialog.value = true
 }
