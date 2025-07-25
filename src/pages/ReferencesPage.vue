@@ -210,9 +210,19 @@
           <q-space />
           <q-btn icon="close" flat round dense @click="opendialogEdit = false" />
         </q-card-section>
-
+        <!--
+                       _____________________________________________________________________
+                      |                                                                     |
+                      |                             BODY FORM                               |
+                      |_____________________________________________________________________|
+        -->
         <q-card-section>
-          <q-form class="q-gutter-md row q-col-gutter-md justify-center">
+          <q-form
+            @submit="onSubmit"
+            @reset="onReset"
+            class="q-gutter-md row q-col-gutter-md justify-center"
+            ref="editForm"
+          >
             <template v-for="(field, key) in dataSchema" :key="field.id">
               <!--
                   _____________________________________________________________________
@@ -308,12 +318,19 @@
           </q-form>
         </q-card-section>
 
+        <!--
+                       _____________________________________________________________________
+                      |                                                                     |
+                      |                            FOOTER FORM                              |
+                      |_____________________________________________________________________|
+        -->
+
         <q-card-actions
           :align="$q.screen.lt.md ? 'center' : 'right'"
           class="q-pa-md bg-grey-2 q-mt-md"
         >
-          <q-btn flat label="Annulla" color="grey-7" @click="opendialogEdit = false" />
-          <q-btn unelevated label="Salva" color="primary" @click="console.log('INVIO')" />
+          <q-btn flat label="Annulla" color="grey-7" @click="resetEditForm" />
+          <q-btn unelevated label="Salva" color="primary" @click="submitEditForm" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -355,7 +372,7 @@ import { ref, onMounted, watch, computed } from 'vue'
 // =====================
 import BarActions from 'components/BarActions.vue'
 import TitleComponent from 'src/components/TitleComponent.vue'
-import DynamicForm from 'src/components/DynamicForm.vue'
+import DynamicForm from 'src/components/form/DynamicForm.vue'
 import TreeNode from 'components/TreeNode.vue'
 
 // =====================
@@ -566,6 +583,31 @@ const detailTitle = computed(() => {
   // |_____________________________________________________________________|
   return nameCandidate ?? detailText.value?.categoryName ?? 'Dettagli'
 })
+
+// ===========================
+//       SUBMIT FORM
+// ===========================
+
+function submitEditForm() {
+  this.$refs.editForm.submit()
+}
+
+function onSubmit() {
+  console.log('Form inviato!')
+  // salva i dati qui...
+}
+
+// ===========================
+//        RESET FORM
+// ===========================
+
+function resetEditForm() {
+  this.$refs.editForm.reset
+}
+
+function onReset() {
+  console.log('Form resettato!')
+}
 
 onMounted(async () => {
   loading.value = true
